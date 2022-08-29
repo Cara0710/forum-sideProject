@@ -31,7 +31,7 @@ const Navbar = () => {
               <p>防詐論壇</p>
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink style={handleNavColor} to="/register">
               <img src="./icons/register-icon.png" alt="register-icon" />
               <p>註冊</p>
@@ -42,8 +42,8 @@ const Navbar = () => {
               <img src="./icons/login-icon.png" alt="login-icon" />
               <p>登入</p>
             </NavLink>
-          </li>
-          {/* <li>
+          </li> */}
+          <li>
             <NavLink style={handleNavColor} to="/profile">
               <img src="./icons/profile-icon.png" alt="profile-icon" />
               <p>個人檔案</p>
@@ -54,7 +54,7 @@ const Navbar = () => {
               <img src="./icons/logout-icon.png" alt="logout-icon" />
               <p>登出</p>
             </NavLink>
-          </li> */}
+          </li>
         </div>
       </ul>
     </nav>

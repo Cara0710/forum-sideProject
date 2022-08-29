@@ -49,6 +49,7 @@
     right: 5%;
     bottom: 5%;
     .button {
+      z-index: 10;
       cursor: pointer;
       position: relative;
       height: 75px;
@@ -67,6 +68,100 @@
         font-size: 2rem;
       }
     }
+  }
+
+  .newpost {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    .newpost-box {
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      .newpost-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 80%;
+        height: 80%;
+        padding: 2rem 2rem;
+        border-radius: 30px;
+        background-color: #1f1f1f;
+        .new {
+          h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #f68500;
+          }
+        }
+        .title {
+          input {
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.25rem 0.5rem;
+            width: 100%;
+            background-color: transparent;
+            border-bottom: 1px solid white;
+          }
+        }
+        .textarea {
+          textarea {
+            width: 100%;
+            height: 50vh;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            background-color: transparent;
+            font-size: 1.1rem;
+            resize: none;
+            word-break: break-all;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            &::-webkit-scrollbar {
+              width: 0px;
+            }
+          }
+        }
+        .button {
+          display: flex;
+          justify-content: space-around;
+          button {
+            border: none;
+            font-size: 1.25rem;
+            color: white;
+            background-color: #f68500;
+            padding: 0.5rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .moveBox {
+      animation: scale 0.5s forwards;
+    }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -92,6 +187,23 @@
   }
 }
 
+@media screen and(max-width:371px ) {
+  .forum {
+    .newpost {
+      .newpost-box {
+        .newpost-container {
+          .button {
+            button {
+              padding: 0.5rem 1rem;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 362px) {
   .forum {
     .tab-bar {
@@ -104,6 +216,7 @@
               width: 10px;
               height: 10px;
             }
+
             p {
               font-size: 0.7rem;
             }

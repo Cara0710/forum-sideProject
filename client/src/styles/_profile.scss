@@ -1,0 +1,235 @@
+.profile {
+  .tab-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul {
+      padding: 1rem 0rem;
+      width: 80%;
+      display: flex;
+      .active {
+        color: #f68500;
+      }
+      li {
+        font-size: 1.35rem;
+        color: white;
+        cursor: pointer;
+        margin-right: 1.5rem;
+        display: flex;
+        p {
+          margin-right: 0.5rem;
+          font-size: 1.35rem;
+          color: #ffe600;
+        }
+      }
+    }
+  }
+  .myprofile {
+    min-height: 90vh;
+    .myprofile-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .myprofile-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        background-color: #1f1f1f;
+        border-radius: 30px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 2rem;
+        table {
+          margin: 2rem 0rem;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          color: white;
+          div {
+            border-bottom: 1px solid white;
+            padding: 1rem 0rem;
+            td {
+              font-size: 1.1rem;
+              white-space: pre-wrap;
+              word-break: break-all;
+            }
+            th {
+              padding-right: 2rem;
+              text-align: left;
+              font-weight: normal;
+              font-size: 1.1rem;
+            }
+          }
+        }
+        .edit-button {
+          margin-top: 1.5rem;
+          margin-bottom: 1rem;
+          button {
+            cursor: pointer;
+            border: none;
+            background-color: #f68500;
+            color: white;
+            font-size: 1.25rem;
+            padding: 0.5rem 2rem;
+            border-radius: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .editPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    .moveBox {
+      animation: scale 0.5s forwards;
+    }
+    .editPage-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      .editPage-container {
+        border-radius: 30px;
+        background-color: #1f1f1f;
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 3rem;
+        .title {
+          margin-bottom: 2rem;
+          h1 {
+            font-size: 2.75rem;
+            color: #f68500;
+          }
+        }
+        .username {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          color: white;
+          p {
+            padding-bottom: 0.5rem;
+            font-size: 1.1rem;
+          }
+          input {
+            font-size: 1.1rem;
+            padding: 0.5rem 0.5rem;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 20px;
+            color: white;
+          }
+        }
+        .password {
+          color: white;
+          margin-top: 2rem;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          p {
+            padding-bottom: 0.5rem;
+            font-size: 1.1rem;
+          }
+          input {
+            font-size: 1.1rem;
+            padding: 0.5rem 0.5rem;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid white;
+            border-radius: 20px;
+            color: white;
+          }
+        }
+        .button {
+          margin-top: 3rem;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          button {
+            font-size: 1.5rem;
+            border: none;
+            background-color: #f68500;
+            color: white;
+            padding: 0.5rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .profile {
+    .tab-bar {
+      ul {
+        justify-content: center;
+        li {
+          font-size: 1.1rem;
+          p {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+    .myprofile {
+      .myprofile-box {
+        .myprofile-container {
+          table {
+            div {
+              tr {
+                display: flex;
+                flex-wrap: wrap;
+                th {
+                  font-size: 0.9rem;
+                  padding-right: 0.25rem;
+                }
+                td {
+                  font-size: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profile {
+    .editPage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .editPage-box {
+        .editPage-container {
+          width: 80%;
+          .title {
+            h1 {
+              font-size: 2rem;
+            }
+          }
+          .button {
+            button {
+              font-size: 1.1rem;
+              padding: 0.5rem 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
