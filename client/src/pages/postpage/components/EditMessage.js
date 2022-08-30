@@ -38,7 +38,7 @@ const EditMessage = ({ setEditPage, editPage }) => {
       <div className={editPage ? "editPage-box moveBox" : "editPage-box"}>
         <div className="editPage-container">
           <div className="new">
-            <h1>編輯貼文</h1>
+            <h1>編輯留言</h1>
           </div>
           <div className="input">
             <div>
