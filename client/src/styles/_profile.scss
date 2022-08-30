@@ -41,13 +41,13 @@
         padding: 2rem 2rem;
         table {
           margin: 2rem 0rem;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          color: white;
-          div {
-            border-bottom: 1px solid white;
+          tbody {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: white;
             padding: 1rem 0rem;
+            border-bottom: 1px solid white;
             td {
               font-size: 1.1rem;
               white-space: pre-wrap;
@@ -85,9 +85,9 @@
     z-index: 100;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     .moveBox {
-      animation: scale 0.5s forwards;
+      animation: scale 0.4s forwards;
     }
     .editPage-box {
       display: flex;
@@ -177,6 +177,7 @@
       ul {
         justify-content: center;
         li {
+          margin-right: 1rem;
           font-size: 1.1rem;
           p {
             font-size: 1.1rem;
@@ -188,7 +189,7 @@
       .myprofile-box {
         .myprofile-container {
           table {
-            div {
+            tbody {
               tr {
                 display: flex;
                 flex-wrap: wrap;
@@ -216,7 +217,8 @@
       justify-content: center;
       .editPage-box {
         .editPage-container {
-          width: 80%;
+          width: 80vw;
+          padding: 3rem 1rem;
           .title {
             h1 {
               font-size: 2rem;

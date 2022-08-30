@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +11,8 @@ body {
   background-image: url("../../public//icons//background .svg");
   background-size: contain;
   background-position: center;
+  width: 100%;
+  height: 100vh;
 }
 
 a {
@@ -185,6 +188,9 @@ nav ul .right li a p {
   .register .register-box {
     width: 80%;
   }
+  .register .register-box .register-container {
+    padding: 3rem 1rem;
+  }
   .register .register-box .register-container .title h1 {
     font-size: 2rem;
   }
@@ -271,6 +277,9 @@ nav ul .right li a p {
   .login .login-box {
     width: 80%;
   }
+  .login .login-box .login-container {
+    padding: 3rem 1rem;
+  }
   .login .login-box .login-container .title h1 {
     font-size: 2rem;
   }
@@ -354,7 +363,7 @@ nav ul .right li a p {
   z-index: 100;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .forum .newpost .newpost-box {
   display: flex;
@@ -386,6 +395,8 @@ nav ul .right li a p {
   width: 100%;
   background-color: transparent;
   border-bottom: 1px solid white;
+  white-space: pre-wrap;
+  word-break: break-all;
 }
 .forum .newpost .newpost-box .newpost-container .textarea textarea {
   width: 100%;
@@ -397,8 +408,8 @@ nav ul .right li a p {
   background-color: transparent;
   font-size: 1.1rem;
   resize: none;
+  white-space: pre-wrap;
   word-break: break-all;
-  word-wrap: break-word;
   -ms-word-break: break-all;
 }
 .forum .newpost .newpost-box .newpost-container .textarea textarea::-webkit-scrollbar {
@@ -418,8 +429,8 @@ nav ul .right li a p {
   cursor: pointer;
 }
 .forum .newpost .moveBox {
-  -webkit-animation: scale 0.5s forwards;
-          animation: scale 0.5s forwards;
+  -webkit-animation: scale 0.4s forwards;
+          animation: scale 0.4s forwards;
 }
 
 @-webkit-keyframes scale {
@@ -458,7 +469,20 @@ nav ul .right li a p {
     font-size: 1rem;
   }
 }
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 376px) {
+  .forum .newpost .newpost-box .newpost-container {
+    padding: 2rem 1rem;
+  }
+  .forum .newpost .newpost-box .newpost-container .new h1 {
+    font-size: 1.5rem;
+  }
+  .forum .newpost .newpost-box .newpost-container .title input {
+    font-size: 1.1rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .forum .newpost .newpost-box .newpost-container .textarea textarea {
+    font-size: 0.9rem;
+  }
   .forum .newpost .newpost-box .newpost-container .button button {
     padding: 0.5rem 1rem;
     font-size: 1rem;
@@ -485,6 +509,7 @@ nav ul .right li a p {
   justify-content: center;
 }
 .posts .posts-box {
+  cursor: pointer;
   width: 80%;
   padding: 0.75rem 1rem;
   border-radius: 20px;
@@ -600,21 +625,21 @@ nav ul .right li a p {
 }
 .profile .myprofile .myprofile-box .myprofile-container table {
   margin: 2rem 0rem;
+}
+.profile .myprofile .myprofile-box .myprofile-container table tbody {
   width: 100%;
   display: flex;
   flex-direction: column;
   color: white;
-}
-.profile .myprofile .myprofile-box .myprofile-container table div {
-  border-bottom: 1px solid white;
   padding: 1rem 0rem;
+  border-bottom: 1px solid white;
 }
-.profile .myprofile .myprofile-box .myprofile-container table div td {
+.profile .myprofile .myprofile-box .myprofile-container table tbody td {
   font-size: 1.1rem;
   white-space: pre-wrap;
   word-break: break-all;
 }
-.profile .myprofile .myprofile-box .myprofile-container table div th {
+.profile .myprofile .myprofile-box .myprofile-container table tbody th {
   padding-right: 2rem;
   text-align: left;
   font-weight: normal;
@@ -640,11 +665,11 @@ nav ul .right li a p {
   z-index: 100;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .profile .editPage .moveBox {
-  -webkit-animation: scale 0.5s forwards;
-          animation: scale 0.5s forwards;
+  -webkit-animation: scale 0.4s forwards;
+          animation: scale 0.4s forwards;
 }
 .profile .editPage .editPage-box {
   display: flex;
@@ -731,20 +756,21 @@ nav ul .right li a p {
     justify-content: center;
   }
   .profile .tab-bar ul li {
+    margin-right: 1rem;
     font-size: 1.1rem;
   }
   .profile .tab-bar ul li p {
     font-size: 1.1rem;
   }
-  .profile .myprofile .myprofile-box .myprofile-container table div tr {
+  .profile .myprofile .myprofile-box .myprofile-container table tbody tr {
     display: flex;
     flex-wrap: wrap;
   }
-  .profile .myprofile .myprofile-box .myprofile-container table div tr th {
+  .profile .myprofile .myprofile-box .myprofile-container table tbody tr th {
     font-size: 0.9rem;
     padding-right: 0.25rem;
   }
-  .profile .myprofile .myprofile-box .myprofile-container table div tr td {
+  .profile .myprofile .myprofile-box .myprofile-container table tbody tr td {
     font-size: 0.9rem;
   }
 }
@@ -755,7 +781,8 @@ nav ul .right li a p {
     justify-content: center;
   }
   .profile .editPage .editPage-box .editPage-container {
-    width: 80%;
+    width: 80vw;
+    padding: 3rem 1rem;
   }
   .profile .editPage .editPage-box .editPage-container .title h1 {
     font-size: 2rem;
@@ -763,5 +790,582 @@ nav ul .right li a p {
   .profile .editPage .editPage-box .editPage-container .button button {
     font-size: 1.1rem;
     padding: 0.5rem 1.5rem;
+  }
+}
+.postpage {
+  min-height: 90vh;
+}
+.postpage .article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.postpage .article .article-box {
+  width: 80%;
+}
+.postpage .article .article-box .edit {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.postpage .article .article-box .edit .edit-button {
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  margin: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.postpage .article .article-box .edit .button {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+}
+.postpage .article .article-box .edit .button button {
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #f68500;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+.postpage .article .article-box .edit .button button:hover {
+  background-color: #ef3737;
+}
+.postpage .article .article-box .edit .button .edit-article {
+  border-bottom: 1px solid white;
+}
+.postpage .article .article-box .article-container {
+  border-radius: 20px;
+  background-color: #1f1f1f;
+  padding: 1rem 1rem;
+}
+.postpage .article .article-box .article-container .up {
+  display: flex;
+  justify-content: space-between;
+}
+.postpage .article .article-box .article-container .up .left .username {
+  color: #24ff00;
+  font-size: 1rem;
+}
+.postpage .article .article-box .article-container .up .left .date {
+  color: rgb(206, 206, 206);
+  font-size: 0.9rem;
+}
+.postpage .article .article-box .article-container .up .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.postpage .article .article-box .article-container .up .right .circle {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50px;
+}
+.postpage .article .article-box .article-container .title h1 {
+  font-size: 2rem;
+  color: white;
+  padding: 0.5rem 0rem;
+  border-bottom: 1px solid white;
+}
+.postpage .article .article-box .article-container .content p {
+  color: white;
+  padding-top: 1rem;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.postpage .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.postpage .comment .comment-box {
+  width: 80%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.postpage .comment .comment-box .comment-container .up {
+  padding: 0rem 1rem;
+  display: flex;
+}
+.postpage .comment .comment-box .comment-container .up .title {
+  color: white;
+  font-size: 1.25rem;
+}
+.postpage .comment .comment-box .comment-container .up .number {
+  padding: 0rem 3rem;
+  color: #ffe600;
+  font-size: 1.25rem;
+}
+.postpage .comment .comment-box .comment-container .input div {
+  display: flex;
+  align-items: center;
+}
+.postpage .comment .comment-box .comment-container .input div label {
+  font-size: 1.1rem;
+  color: white;
+}
+.postpage .comment .comment-box .comment-container .input div input[type=range] {
+  margin-left: 1rem;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 6px;
+  outline: none;
+  border: none;
+  background: none;
+  background-color: #5e5e5e;
+  border-radius: 30px;
+}
+.postpage .comment .comment-box .comment-container .input div input[type=range]:active {
+  background: #ffffff;
+}
+.postpage .comment .comment-box .comment-container .input div input[type=range]:active::-webkit-slider-thumb {
+  background: #ef3737;
+  width: 18px;
+  height: 18px;
+}
+.postpage .comment .comment-box .comment-container .input div input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s; /* 點選放大時候的漸變時間 */
+}
+.postpage .comment .comment-box .comment-container .input div p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f1f1f;
+  background-color: white;
+  margin-left: 1rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+.postpage .comment .comment-box .comment-container .input .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea {
+  border: none;
+  outline: none;
+  background: none;
+  resize: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 0rem;
+  color: white;
+  border-bottom: 2px solid gray;
+  width: 100%;
+  height: 40px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea::-webkit-scrollbar {
+  width: 0px;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea:focus {
+  border-bottom: 2px solid white;
+}
+.postpage .comment .comment-box .comment-container .input .text .button {
+  height: 0vh;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+}
+.postpage .comment .comment-box .comment-container .input .text .button button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  color: white;
+  background-color: #f68500;
+  padding: 0.25rem 1rem;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea:not(:-moz-placeholder-shown) + .button {
+  opacity: 1;
+  margin-top: 1rem;
+  height: auto;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea:not(:-ms-input-placeholder) + .button {
+  opacity: 1;
+  margin-top: 1rem;
+  height: auto;
+}
+.postpage .comment .comment-box .comment-container .input .text textarea:not(:placeholder-shown) + .button {
+  opacity: 1;
+  margin-top: 1rem;
+  height: auto;
+}
+.postpage .comment .messages-box {
+  width: 80%;
+  margin: 1rem 0rem;
+}
+.postpage .comment .messages-box .messages-container {
+  position: relative;
+}
+.postpage .comment .messages-box .messages-container .up {
+  display: flex;
+  justify-content: space-between;
+}
+.postpage .comment .messages-box .messages-container .up .left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.postpage .comment .messages-box .messages-container .up .left .username {
+  margin-right: 1rem;
+  color: #ffe600;
+  font-size: 0.9rem;
+}
+.postpage .comment .messages-box .messages-container .up .left .date {
+  color: rgb(206, 206, 206);
+  font-size: 0.8rem;
+}
+.postpage .comment .messages-box .messages-container .up .right .editButton {
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.postpage .comment .messages-box .messages-container .up .right .button {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 25px;
+}
+.postpage .comment .messages-box .messages-container .up .right .button button {
+  display: flex;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #323232;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.15rem 0.35rem;
+}
+.postpage .comment .messages-box .messages-container .up .right .button button:hover {
+  background-color: #ef3737;
+}
+.postpage .comment .messages-box .messages-container .up .right .button .edit-message {
+  border-bottom: 1px solid white;
+}
+.postpage .comment .messages-box .messages-container .down {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+.postpage .comment .messages-box .messages-container .down .content p {
+  font-size: 1.1rem;
+  color: white;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.postpage .comment .messages-box .messages-container .down .dangerous p {
+  font-size: 1.1rem;
+  color: #24ff00;
+}
+.postpage .editPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.postpage .editPage .editPage-box {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.postpage .editPage .editPage-box .editPage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  height: 80%;
+  padding: 2rem 2rem;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+}
+.postpage .editPage .editPage-box .editPage-container .new h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #f68500;
+}
+.postpage .editPage .editPage-box .editPage-container .title input {
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.postpage .editPage .editPage-box .editPage-container .input div {
+  display: flex;
+  align-items: center;
+}
+.postpage .editPage .editPage-box .editPage-container .input div label {
+  padding-left: 0.5rem;
+  font-size: 1.1rem;
+  color: white;
+}
+.postpage .editPage .editPage-box .editPage-container .input div input[type=range] {
+  margin-left: 1rem;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 6px;
+  outline: none;
+  border: none;
+  background: none;
+  background-color: #5e5e5e;
+  border-radius: 30px;
+}
+.postpage .editPage .editPage-box .editPage-container .input div input[type=range]:active {
+  background: #ffffff;
+}
+.postpage .editPage .editPage-box .editPage-container .input div input[type=range]:active::-webkit-slider-thumb {
+  background: #ef3737;
+  width: 18px;
+  height: 18px;
+}
+.postpage .editPage .editPage-box .editPage-container .input div input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s; /* 點選放大時候的漸變時間 */
+}
+.postpage .editPage .editPage-box .editPage-container .input div p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f1f1f;
+  background-color: white;
+  margin-left: 1rem;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+.postpage .editPage .editPage-box .editPage-container .textarea textarea {
+  width: 100%;
+  height: 50vh;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  background-color: transparent;
+  font-size: 1.1rem;
+  resize: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+  -ms-word-break: break-all;
+}
+.postpage .editPage .editPage-box .editPage-container .textarea textarea::-webkit-scrollbar {
+  width: 0px;
+}
+.postpage .editPage .editPage-box .editPage-container .button {
+  display: flex;
+  justify-content: space-around;
+}
+.postpage .editPage .editPage-box .editPage-container .button button {
+  border: none;
+  font-size: 1.25rem;
+  color: white;
+  background-color: #f68500;
+  padding: 0.5rem 2rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.postpage .editPage .moveBox {
+  -webkit-animation: scale 0.4s forwards;
+          animation: scale 0.4s forwards;
+}
+.postpage .deletePage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.postpage .deletePage .deletePage-box {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.postpage .deletePage .deletePage-box .deletePage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 150px;
+  padding: 2rem 2rem;
+  border-radius: 30px;
+  background-color: #1f1f1f;
+}
+.postpage .deletePage .deletePage-box .deletePage-container .delete h1 {
+  text-align: center;
+  font-size: 1.1rem;
+  color: white;
+}
+.postpage .deletePage .deletePage-box .deletePage-container .button {
+  display: flex;
+  justify-content: space-around;
+}
+.postpage .deletePage .deletePage-box .deletePage-container .button button {
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: #f68500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.postpage .deletePage .moveBox {
+  -webkit-animation: scale 0.4s forwards;
+          animation: scale 0.4s forwards;
+}
+
+@media screen and (max-width: 545px) {
+  .postpage .editPage .editPage-box .editPage-container .input div input[type=range] {
+    width: 45%;
+    margin-left: 0.25rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .input div p {
+    height: 28px;
+    width: 28px;
+    margin-left: 0.25rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .postpage .article .article-box .article-container .title h1 {
+    font-size: 1.5rem;
+  }
+  .postpage .article .article-box .article-container .content P {
+    font-size: 1rem;
+  }
+  .postpage .comment .comment-box .comment-container .up {
+    justify-content: space-between;
+    padding: 0rem;
+  }
+  .postpage .comment .comment-box .comment-container .up .title {
+    font-size: 1.1rem;
+  }
+  .postpage .comment .comment-box .comment-container .up .number {
+    font-size: 1.1rem;
+    padding: 0rem 1rem;
+  }
+  .postpage .comment .comment-box .comment-container .input div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .postpage .comment .comment-box .comment-container .input div label {
+    font-size: 1rem;
+  }
+  .postpage .comment .comment-box .comment-container .input div input[type=range] {
+    width: 50%;
+    margin-left: 0.25rem;
+  }
+  .postpage .comment .comment-box .comment-container .input div p {
+    margin-left: 0.25rem;
+    height: 30px;
+    width: 30px;
+    font-size: 1rem;
+  }
+  .postpage .comment .comment-box .comment-container .input .text input[type=text] {
+    font-size: 1rem;
+    padding: 0.5rem 0rem;
+    width: 100%;
+  }
+  .postpage .comment .comment-box .comment-container .input .text .button {
+    margin: 0.5rem 0rem;
+  }
+  .postpage .comment .comment-box .comment-container .input .text .button button {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0rem 0.25rem;
+  }
+  .postpage .comment .messages-box .messages-container .down .content p {
+    font-size: 1rem;
+  }
+  .postpage .comment .messages-box .messages-container .down .dangerous p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 376px) {
+  .postpage .editPage .editPage-box .editPage-container {
+    width: 80%;
+    padding: 2rem 0.5rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .new h1 {
+    font-size: 1.5rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .title input {
+    font-size: 1.1rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .input div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .postpage .editPage .editPage-box .editPage-container .input div label {
+    font-size: 1rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .input div input[type=range] {
+    width: 40%;
+    margin-left: 0rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .input div p {
+    margin-left: 0.25rem;
+    height: 25px;
+    width: 25px;
+    font-size: 0.9rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .button button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  .postpage .editPage .editPage-box .editPage-container .textarea textarea {
+    font-size: 0.9rem;
+  }
+  .postpage .deletePage .deletePage-box .deletePage-container {
+    width: 80%;
+    height: 20vh;
+    padding: 2rem 2rem;
+  }
+  .postpage .deletePage .deletePage-box .deletePage-container .delete h1 {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
   }
 }/*# sourceMappingURL=style.css.map */

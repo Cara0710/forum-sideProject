@@ -1,7 +1,6 @@
 import React from "react";
 
 const TabBar = ({ index, setIndex }) => {
-  const handleIndex = (index) => [setIndex(index)];
   return (
     <div className="tab-bar">
       <ul>
