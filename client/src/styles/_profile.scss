@@ -77,7 +77,16 @@
       }
     }
   }
-
+  .mypost {
+    display: flex;
+    flex-direction: column-reverse;
+    .nopost {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #24ff00;
+    }
+  }
   .editPage {
     position: fixed;
     top: 0;
@@ -175,7 +184,7 @@
   .profile {
     .tab-bar {
       ul {
-        justify-content: center;
+        justify-content: space-around;
         li {
           margin-right: 1rem;
           font-size: 1.1rem;

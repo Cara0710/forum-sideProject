@@ -1,6 +1,6 @@
 import React from "react";
 
-const Article = ({ handleEditPage, editbutton, setDeletePage }) => {
+const Article = ({ handleEditPage, editbutton, setDeletePage, data }) => {
   return (
     <div className="article">
       <div className="article-box">
@@ -29,14 +29,10 @@ const Article = ({ handleEditPage, editbutton, setDeletePage }) => {
             </div>
           </div>
           <div className="title">
-            <h1>公司旅遊要去緬甸呱呱呱呱嘎擦擦?</h1>
+            <h1>{data.title}</h1>
           </div>
           <div className="content">
-            <p>
-              如題，公司說這一季業績很好，為了獎勵員工，
-              <br />
-              要帶我們20人去緬甸玩七天六夜，這是正常的嗎?
-            </p>
+            <p>{data.description}</p>
           </div>
         </div>
       </div>

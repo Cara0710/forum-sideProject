@@ -1,6 +1,6 @@
 import React from "react";
 
-const Myprofile = ({ handleEditPage }) => {
+const Myprofile = ({ handleEditPage, currentUser }) => {
   return (
     <div className="myprofile">
       <div className="myprofile-box">
@@ -9,21 +9,25 @@ const Myprofile = ({ handleEditPage }) => {
             <tbody>
               <tr>
                 <th>註冊日期:</th>
-                <td>2022/08/15</td>
+                <td>{`${currentUser.user.date.slice(
+                  0,
+                  4
+                )} / ${currentUser.user.date.slice(
+                  5,
+                  7
+                )} / ${currentUser.user.date.slice(8, 10)}`}</td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <th>使用者名稱:</th>
-                <td>Ben</td>
+                <td>{currentUser.user.username}</td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <th>密碼:</th>
-                <td>
-                  202/082/082/082/082/082/082/082/082/082/082/0822/082/082/082/082/082/082/082/082/08/15
-                </td>
+                <td>{currentUser.user.password}</td>
               </tr>
             </tbody>
           </table>

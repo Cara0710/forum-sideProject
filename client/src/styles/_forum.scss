@@ -42,7 +42,8 @@
     }
   }
   .allpost {
-    min-height: 90vh;
+    display: flex;
+    flex-direction: column-reverse;
   }
   .newpost-button {
     position: fixed;
@@ -194,7 +195,7 @@
     .newpost {
       .newpost-box {
         .newpost-container {
-          padding: 2rem 1rem;
+          padding: 2rem 0.5rem;
           .new {
             h1 {
               font-size: 1.5rem;

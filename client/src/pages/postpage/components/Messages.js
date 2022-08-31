@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DeleteMessage from "./DeleteMessage";
 import EditMessage from "./EditMessage";
 
-const Messages = () => {
+const Messages = ({ data }) => {
   const [editButton, setEditButton] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [editPage, setEditPage] = useState(false);
@@ -26,8 +26,11 @@ const Messages = () => {
       <div className="messages-container">
         <div className="up">
           <div className="left">
-            <p className="username">天下第一帥</p>
-            <p className="date">2022/5/6</p>
+            <p className="username">{data.author.username}</p>
+            <p className="date">{`${data.date.slice(0, 4)} / ${data.date.slice(
+              5,
+              7
+            )} / ${data.date.slice(8, 10)}`}</p>
           </div>
           <div className="right">
             <p onClick={() => setEditButton(true)} className="editButton">
@@ -45,10 +48,10 @@ const Messages = () => {
         </div>
         <div className="down">
           <div className="content">
-            <p>別去啊!!!!這明顯不太對</p>
+            <p>{data.content}</p>
           </div>
           <div className="dangerous">
-            <p>危險指數:3</p>
+            <p>{`危險指數:${data.dangerous}`}</p>
           </div>
         </div>
       </div>

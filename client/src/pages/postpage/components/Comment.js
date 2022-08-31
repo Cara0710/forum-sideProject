@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Messages from "./Messages";
+import PostAuthService from "../../../services/postAuth.service";
+import { useNavigate } from "react-router-dom";
 
-const Comment = () => {
+const Comment = ({ currentUser, data, setPostData }) => {
   const [description, setDescription] = useState("");
   const [dangerous, setDangerous] = useState(0);
   const [dangerousColor, setDangerousColor] = useState("#1F1F1F");
   const [backgroundColor, setBackgroundColor] = useState("white");
-  const array = [1, 2, 3, 4];
+  const [loading, setLoading] = useState(false);
+  // error message
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   // textarea auto hight
   const autoGrow = (e) => {
@@ -16,21 +21,35 @@ const Comment = () => {
 
   // set input color and value
   const handleDangerous = (e) => {
-    setDangerous(e.target.value);
-    if (e.target.value >= 1 && e.target.value < 5) {
-      setBackgroundColor("#24FF00");
-      return setDangerousColor("#1F1F1F");
-    } else if (e.target.value >= 5 && e.target.value < 7.5) {
-      setBackgroundColor("#F68500");
-      return setDangerousColor("white");
-    } else if (e.target.value >= 7.5 && e.target.value <= 10) {
-      setBackgroundColor("#EF3737");
-      return setDangerousColor("white");
+    // if not login navigate to login page
+    if (!currentUser) {
+      window.alert("請先登入");
+      navigate("/login");
+    } else {
+      // set input color and value
+      setDangerous(e.target.value);
+      if (e.target.value >= 1 && e.target.value < 5) {
+        setBackgroundColor("#24FF00");
+        return setDangerousColor("#1F1F1F");
+      } else if (e.target.value >= 5 && e.target.value < 7.5) {
+        setBackgroundColor("#F68500");
+        return setDangerousColor("white");
+      } else if (e.target.value >= 7.5 && e.target.value <= 10) {
+        setBackgroundColor("#EF3737");
+        return setDangerousColor("white");
+      }
     }
   };
 
   const handleDescription = (e) => {
-    setDescription(e.target.value);
+    // if not login navigate to login page
+    if (!currentUser) {
+      window.alert("請先登入");
+      navigate("/login");
+    } else {
+      // set input color and value
+      setDescription(e.target.value);
+    }
   };
 
   // button cancle
@@ -41,15 +60,29 @@ const Comment = () => {
     setDangerous(0);
     setBackgroundColor("white");
     setDangerousColor("#1F1F1F");
+    setMessage("");
   };
   // button send
   const handleSend = (e) => {
-    // return original textarea style
-    e.target.parentElement.parentElement.children[0].style.height = "40px";
-    setDescription("");
-    setDangerous(0);
-    setBackgroundColor("white");
-    setDangerousColor("#1F1F1F");
+    setLoading(true);
+    PostAuthService.newComment(data._id, dangerous, description)
+      .then((d) => {
+        setLoading(false);
+        setPostData((pre) => {
+          return { ...pre, comments: [...pre.comments, d.data] };
+        });
+        // return original textarea style
+        e.target.parentElement.parentElement.children[0].style.height = "40px";
+        setDescription("");
+        setDangerous(0);
+        setBackgroundColor("white");
+        setDangerousColor("#1F1F1F");
+      })
+      .catch((e) => {
+        setLoading(false);
+        console.log(e);
+        setMessage(e.response.data);
+      });
   };
 
   return (
@@ -88,6 +121,7 @@ const Comment = () => {
                 id="message"
                 value={description}
               ></textarea>
+              {message && <div className="error error-comment">{message}</div>}
               <div className="button">
                 <button onClick={handleCancle}>取消</button>
                 <button onClick={handleSend}>留言</button>
@@ -96,9 +130,39 @@ const Comment = () => {
           </div>
         </div>
       </div>
-      {array.map((d) => {
-        return <Messages />;
-      })}
+      {/* loading css animation */}
+      {loading && (
+        <div className="loading-box">
+          <div className="loading la-ball-8bits la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      )}
+
+      <div className="messages-wrapper">
+        {data && data.comments.length === 0 && (
+          <div className="noComment">尚未有任何留言</div>
+        )}
+        {data &&
+          data.comments.map((d) => {
+            return <Messages data={d} key={d._id} />;
+          })}
+      </div>
     </div>
   );
 };

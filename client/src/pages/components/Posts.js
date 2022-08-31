@@ -1,21 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Posts = () => {
+const Posts = ({ data }) => {
+  const navigate = useNavigate();
+  const handlePost = () => {
+    navigate(`/forum/post/${data._id}`);
+  };
   return (
     <div className="posts">
-      <div className="posts-box">
+      <div onClick={handlePost} className="posts-box">
         <div className="posts-container">
           <div className="left">
             <div className="up">
-              <p className="username">Ben</p>
-              <p className="date">8/29</p>
+              <p className="username">{data.author.username}</p>
+              <p className="date">{`${data.date.slice(
+                5,
+                7
+              )} / ${data.date.slice(8, 10)}`}</p>
             </div>
-            <h1>
-              公司旅遊
-              公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨
-              公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨
-              公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨公司旅遊要去柬埔寨
-            </h1>
+            <h1>{data.title}</h1>
           </div>
           <div className="right">
             <div className="message">1則留言</div>
