@@ -619,6 +619,12 @@ nav ul .right li a p {
   display: flex;
   flex-direction: column-reverse;
 }
+.forum .allpost .nopost {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #24ff00;
+}
 .forum .newpost-button {
   position: fixed;
   right: 5%;
@@ -1112,10 +1118,13 @@ nav ul .right li a p {
    -ms-user-select: none;
        user-select: none;
   -webkit-user-select: none;
-  margin: 0.5rem 1rem;
+  margin: 0.25rem 1rem;
   color: white;
   cursor: pointer;
   font-size: 1.5rem;
+}
+.postpage .article .article-box .edit .notauthor {
+  visibility: hidden;
 }
 .postpage .article .article-box .edit .button {
   position: absolute;
@@ -1160,6 +1169,10 @@ nav ul .right li a p {
   justify-content: center;
   align-items: center;
 }
+.postpage .article .article-box .article-container .up .right .average {
+  color: #ffe600;
+  margin: 0rem 0.5rem;
+}
 .postpage .article .article-box .article-container .up .right .circle {
   width: 20px;
   height: 20px;
@@ -1169,7 +1182,6 @@ nav ul .right li a p {
 .postpage .article .article-box .article-container .title h1 {
   font-size: 2rem;
   color: white;
-  padding: 0.5rem 0rem;
   border-bottom: 1px solid white;
 }
 .postpage .article .article-box .article-container .content p {

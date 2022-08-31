@@ -52,7 +52,7 @@ const Comment = ({ currentUser, data, setPostData }) => {
     }
   };
 
-  // button cancle
+  // cancle add comment
   const handleCancle = (e) => {
     // return original textarea style
     e.target.parentElement.parentElement.children[0].style.height = "40px";
@@ -62,7 +62,8 @@ const Comment = ({ currentUser, data, setPostData }) => {
     setDangerousColor("#1F1F1F");
     setMessage("");
   };
-  // button send
+
+  // add new comment
   const handleSend = (e) => {
     setLoading(true);
     PostAuthService.newComment(data._id, dangerous, description)
@@ -91,7 +92,7 @@ const Comment = ({ currentUser, data, setPostData }) => {
         <div className="comment-container">
           <div className="up">
             <p className="title">---留言板---</p>
-            <p className="number">2則留言</p>
+            <p className="number">{`${data.comments.length}則留言`}</p>
           </div>
           <div className="input">
             <div>
@@ -160,7 +161,7 @@ const Comment = ({ currentUser, data, setPostData }) => {
         )}
         {data &&
           data.comments.map((d) => {
-            return <Messages data={d} key={d._id} />;
+            return <Messages data={d} key={d._id} currentUser={currentUser} />;
           })}
       </div>
     </div>

@@ -44,6 +44,12 @@
   .allpost {
     display: flex;
     flex-direction: column-reverse;
+    .nopost {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+      color: #24ff00;
+    }
   }
   .newpost-button {
     position: fixed;

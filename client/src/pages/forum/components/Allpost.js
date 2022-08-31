@@ -27,6 +27,9 @@ const Allpost = ({ index, setIndex, allPostData }) => {
           </div>
         </div>
       )}
+      {allPostData && allPostData.length === 0 && (
+        <div className="nopost">尚無任何貼文</div>
+      )}
       {allPostData &&
         allPostData.map((data) => {
           return <Posts data={data} key={data._id} />;

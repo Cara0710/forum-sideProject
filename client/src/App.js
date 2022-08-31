@@ -46,7 +46,12 @@ const App = () => {
           />
           <Route
             path="forum/post/:_id"
-            element={<PostPage currentUser={currentUser} />}
+            element={
+              <PostPage
+                setAllPostData={setAllPostData}
+                currentUser={currentUser}
+              />
+            }
           />
         </Route>
         <Route

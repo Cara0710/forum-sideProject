@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Article = ({ handleEditPage, editbutton, setDeletePage, data }) => {
+const Article = ({
+  handleEditPage,
+  editbutton,
+  setDeletePage,
+  data,
+  average,
+  currentUser,
+}) => {
+  // handle dangerous circle color
+  const handleCircleColor = () => {
+    return {
+      backgroundColor:
+        average >= 1 && average < 5
+          ? "#24FF00"
+          : average >= 5 && average < 7.5
+          ? "#F68500"
+          : average >= 7.5 && average <= 10
+          ? "#EF3737"
+          : "white",
+    };
+  };
+
   return (
     <div className="article">
       <div className="article-box">
         <div className="edit">
-          <p className="edit-button">☰</p>
+          <p
+            className={
+              currentUser && currentUser.user._id === data.author._id
+                ? "edit-button"
+                : "edit-button notauthor"
+            }
+          >
+            ☰
+          </p>
+
           {editbutton && (
             <div className="button">
               <button
@@ -21,11 +51,15 @@ const Article = ({ handleEditPage, editbutton, setDeletePage, data }) => {
         <div className="article-container">
           <div className="up">
             <div className="left">
-              <p className="username">Ben</p>
-              <p className="date">2022/8/30</p>
+              <p className="username">{data.author.username}</p>
+              <p className="date">{`${data.date.slice(
+                0,
+                4
+              )} / ${data.date.slice(5, 7)} / ${data.date.slice(8, 10)}`}</p>
             </div>
             <div className="right">
-              <div className="circle"></div>
+              <div className="average">{average.toFixed(2)}</div>
+              <div style={handleCircleColor()} className="circle"></div>
             </div>
           </div>
           <div className="title">

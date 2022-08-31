@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DeleteMessage from "./DeleteMessage";
 import EditMessage from "./EditMessage";
 
-const Messages = ({ data }) => {
+const Messages = ({ data, currentUser }) => {
   const [editButton, setEditButton] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [editPage, setEditPage] = useState(false);
@@ -33,9 +33,12 @@ const Messages = ({ data }) => {
             )} / ${data.date.slice(8, 10)}`}</p>
           </div>
           <div className="right">
-            <p onClick={() => setEditButton(true)} className="editButton">
-              ⋯
-            </p>
+            {currentUser && currentUser.user._id === data.author._id && (
+              <p onClick={() => setEditButton(true)} className="editButton">
+                ⋯
+              </p>
+            )}
+
             {editButton && (
               <div className="button">
                 <button onClick={handleEditMessage} className="edit-message">

@@ -4,17 +4,19 @@ import Article from "./components/Article";
 import Comment from "./components/Comment";
 import EditPage from "./components/EditPage";
 import DeletePage from "./components/DeletePage";
-import PostService from "../../services/posts.service";
+import PostsService from "../../services/posts.service";
 
-const Postpage = ({ currentUser }) => {
+const Postpage = ({ currentUser, setAllPostData }) => {
   const [editbutton, setEditButton] = useState(false);
   const [editPage, setEditPage] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [postData, setPostData] = useState(null);
+  const [average, setAverage] = useState(0);
   let { _id } = useParams();
 
+  // initialize get onepost data
   useEffect(() => {
-    PostService.getOnePost(_id)
+    PostsService.getOnePost(_id)
       .then((d) => {
         setPostData(d.data);
       })
@@ -23,6 +25,30 @@ const Postpage = ({ currentUser }) => {
       });
   }, []);
 
+  //if post data change then restart get all post an averaged
+  useEffect(() => {
+    // caculate average
+    if (postData) {
+      const number = postData.comments.map((d) => {
+        return d.dangerous;
+      });
+      if (number.length === 0) return setAverage(0);
+      const result = number.reduce((pre, cur) => {
+        return pre + cur;
+      });
+      setAverage(result / number.length);
+
+      // restart get all post
+      PostsService.getAllPost()
+        .then((d) => {
+          console.log(d.data);
+          setAllPostData(d.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, [postData]);
   // make edit article button visible
   const handleEditButton = (e) => {
     if (e.target.className !== "edit-button") return setEditButton(false);
@@ -63,6 +89,8 @@ const Postpage = ({ currentUser }) => {
           handleEditPage={handleEditPage}
           setDeletePage={setDeletePage}
           data={postData}
+          average={average}
+          currentUser={currentUser}
         />
       )}
       {postData && (
