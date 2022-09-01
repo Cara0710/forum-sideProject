@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import TabBar from "./components/Tab-bar";
 import Allpost from "./components/Allpost";
 import Newpost from "./components/Newpost";
@@ -13,7 +13,7 @@ const Forum = ({ currentUser, allPostData, setAllPostData }) => {
   return (
     <div className="forum">
       <TabBar index={index} setIndex={setIndex} />
-      <Allpost allPostData={allPostData} index={index} setIndex={setIndex} />
+      <Allpost index={index} allPostData={allPostData} setIndex={setIndex} />
       {newpostPage && (
         <Newpost
           currentUser={currentUser}

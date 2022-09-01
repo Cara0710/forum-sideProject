@@ -1,10 +1,11 @@
 .posts {
-  margin-bottom: 1rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   .posts-box {
+    margin-bottom: 1rem;
     cursor: pointer;
     width: 80%;
     padding: 0.75rem 1rem;

@@ -52,10 +52,10 @@ const Article = ({
           <div className="up">
             <div className="left">
               <p className="username">{data.author.username}</p>
-              <p className="date">{`${data.date.slice(
-                0,
-                4
-              )} / ${data.date.slice(5, 7)} / ${data.date.slice(8, 10)}`}</p>
+              <p className="date">{`${data.date.slice(0, 4)}/${data.date.slice(
+                5,
+                7
+              )}/${data.date.slice(8, 10)}`}</p>
             </div>
             <div className="right">
               <div className="average">{average.toFixed(2)}</div>

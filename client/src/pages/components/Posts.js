@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Posts = ({ data, allPostData }) => {
+const Posts = ({ data, index }) => {
   const [average, setAverage] = useState(0);
   const navigate = useNavigate();
   const handlePost = () => {
@@ -10,7 +10,6 @@ const Posts = ({ data, allPostData }) => {
 
   // caculate average
   useEffect(() => {
-    console.log("average");
     if (data) {
       const number = data.comments.map((d) => {
         return d.dangerous;
@@ -22,7 +21,6 @@ const Posts = ({ data, allPostData }) => {
       setAverage(result / number.length);
     }
   }, []);
-
   // handle dangerous circle color
   const handleCircleColor = () => {
     return {
@@ -36,26 +34,118 @@ const Posts = ({ data, allPostData }) => {
           : "white",
     };
   };
+
   return (
     <div className="posts">
-      <div onClick={handlePost} className="posts-box">
-        <div className="posts-container">
-          <div className="left">
-            <div className="up">
-              <p className="username">{data.author.username}</p>
-              <p className="date">{`${data.date.slice(
-                5,
-                7
-              )} / ${data.date.slice(8, 10)}`}</p>
+      {/* all post */}
+      {index === 1 && (
+        <div onClick={handlePost} className="posts-box">
+          <div className="posts-container">
+            <div className="left">
+              <div className="up">
+                <p className="username">{data.author.username}</p>
+                <p className="date">{`${data.date.slice(
+                  5,
+                  7
+                )} / ${data.date.slice(8, 10)}`}</p>
+              </div>
+              <h1>{data.title}</h1>
             </div>
-            <h1>{data.title}</h1>
-          </div>
-          <div className="right">
-            <div className="message">{`${data.comments.length}則留言`}</div>
-            <div style={handleCircleColor()} className="circle"></div>
+            <div className="right">
+              <div className="message">{`${data.comments.length}則留言`}</div>
+              <div style={handleCircleColor()} className="circle"></div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* dangerous  */}
+      {index === 2 && average >= 7.5 && average <= 10 && (
+        <div onClick={handlePost} className="posts-box">
+          <div className="posts-container">
+            <div className="left">
+              <div className="up">
+                <p className="username">{data.author.username}</p>
+                <p className="date">{`${data.date.slice(
+                  5,
+                  7
+                )} / ${data.date.slice(8, 10)}`}</p>
+              </div>
+              <h1>{data.title}</h1>
+            </div>
+            <div className="right">
+              <div className="message">{`${data.comments.length}則留言`}</div>
+              <div style={handleCircleColor()} className="circle"></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* warn post */}
+      {index === 3 && average >= 5 && average < 7.5 && (
+        <div onClick={handlePost} className="posts-box">
+          <div className="posts-container">
+            <div className="left">
+              <div className="up">
+                <p className="username">{data.author.username}</p>
+                <p className="date">{`${data.date.slice(
+                  5,
+                  7
+                )} / ${data.date.slice(8, 10)}`}</p>
+              </div>
+              <h1>{data.title}</h1>
+            </div>
+            <div className="right">
+              <div className="message">{`${data.comments.length}則留言`}</div>
+              <div style={handleCircleColor()} className="circle"></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* safe post */}
+      {index === 4 && average >= 1 && average < 5 && (
+        <div onClick={handlePost} className="posts-box">
+          <div className="posts-container">
+            <div className="left">
+              <div className="up">
+                <p className="username">{data.author.username}</p>
+                <p className="date">{`${data.date.slice(
+                  5,
+                  7
+                )} / ${data.date.slice(8, 10)}`}</p>
+              </div>
+              <h1>{data.title}</h1>
+            </div>
+            <div className="right">
+              <div className="message">{`${data.comments.length}則留言`}</div>
+              <div style={handleCircleColor()} className="circle"></div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* mypost */}
+      {index === "mypost" && (
+        <div onClick={handlePost} className="posts-box">
+          <div className="posts-container">
+            <div className="left">
+              <div className="up">
+                <p className="username">{data.author.username}</p>
+                <p className="date">{`${data.date.slice(
+                  5,
+                  7
+                )} / ${data.date.slice(8, 10)}`}</p>
+              </div>
+              <h1>{data.title}</h1>
+            </div>
+            <div className="right">
+              <div className="message">{`${data.comments.length}則留言`}</div>
+              <div style={handleCircleColor()} className="circle"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

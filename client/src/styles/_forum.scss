@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     ul {
-      padding: 1rem 0rem;
+      padding: 1rem 1rem;
       width: 80%;
       display: flex;
       li {
@@ -174,12 +174,35 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 601px) {
   .forum {
     .tab-bar {
       ul {
         li {
-          margin-right: 0.5rem;
+          margin-right: 0.75rem;
+          div {
+            .circle {
+              margin-right: 0.1rem;
+              width: 15px;
+              height: 15px;
+            }
+            p {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .forum {
+    .tab-bar {
+      ul {
+        justify-content: space-between;
+        li {
+          margin-right: 0.25rem;
           div {
             .circle {
               margin-right: 0.1rem;
@@ -187,7 +210,7 @@
               height: 14px;
             }
             p {
-              font-size: 1rem;
+              font-size: 0.9rem;
             }
           }
         }
@@ -234,9 +257,13 @@
   .forum {
     .tab-bar {
       ul {
+        align-items: center;
+        flex-wrap: wrap;
         li {
           margin-right: 0.4rem;
           div {
+            display: flex;
+            flex-direction: column;
             .circle {
               margin-right: 0.25rem;
               width: 10px;

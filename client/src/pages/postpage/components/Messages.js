@@ -20,17 +20,16 @@ const Messages = ({ data, currentUser, postDataStatus, setPostData }) => {
     setEditButton(false);
     setDeletePage(true);
   };
-
   return (
     <div onClick={handleEditButton} className="messages-box">
       <div className="messages-container">
         <div className="up">
           <div className="left">
             <p className="username">{data.author.username}</p>
-            <p className="date">{`${data.date.slice(0, 4)} / ${data.date.slice(
+            <p className="date">{`${data.date.slice(0, 4)}/${data.date.slice(
               5,
               7
-            )} / ${data.date.slice(8, 10)}`}</p>
+            )}/${data.date.slice(8, 10)} ${data.date.slice(11, 19)}`}</p>
           </div>
           <div className="right">
             {currentUser && currentUser.user._id === data.author._id && (

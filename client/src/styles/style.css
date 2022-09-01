@@ -365,6 +365,85 @@ h6 {
     opacity: 0;
   }
 }
+.home {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  margin: 2rem 1rem;
+}
+.home .title {
+  width: 50%;
+  margin: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px white;
+}
+.home .title .big {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: 1.5px 1.5px 0px #f68500;
+}
+.home .down-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.home .down-box .entrance {
+  margin: 4rem;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 30px;
+  background-color: #f68500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.home .down-box .entrance:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px #f68500, 0px 0px 20px #f68500;
+}
+
+@media screen and (max-width: 950px) {
+  .home .title {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 612px) {
+  .home .title {
+    width: 80%;
+    margin: 0rem;
+    padding: 3rem 0.75rem;
+  }
+  .home .title .big {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 0px #f68500;
+  }
+  .home .title .subtitle {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 338px) {
+  .home .title {
+    width: 90%;
+  }
+  .home .title .big {
+    font-size: 1.5rem;
+  }
+  .home .title .subtitle {
+    font-size: 0.9rem;
+  }
+  .home .down-box .entrance {
+    margin: 4rem 2.5rem;
+    font-size: 0.9rem;
+  }
+}
 nav {
   width: 100%;
   display: flex;
@@ -421,6 +500,29 @@ nav ul .right li a p {
   }
   nav ul .right li a {
     padding: 0.5rem 0.35rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  nav ul {
+    margin: 0rem 1.5rem;
+  }
+  nav ul .left li a img {
+    width: 60px;
+  }
+  nav ul .right li {
+    margin: 0rem 0.15rem;
+  }
+  nav ul .right li a {
+    padding: 0.5rem 0.5rem;
+  }
+  nav ul .right li a img {
+    width: 18px;
+    height: 18px;
+  }
+  nav ul .right li a p {
+    visibility: hidden;
+    font-size: 0;
+    margin-top: 0rem;
   }
 }
 .register {
@@ -616,7 +718,7 @@ nav ul .right li a p {
   align-items: center;
 }
 .forum .tab-bar ul {
-  padding: 1rem 0rem;
+  padding: 1rem 1rem;
   width: 80%;
   display: flex;
 }
@@ -786,9 +888,25 @@ nav ul .right li a p {
     transform: scale(1);
   }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 601px) {
   .forum .tab-bar ul li {
-    margin-right: 0.5rem;
+    margin-right: 0.75rem;
+  }
+  .forum .tab-bar ul li div .circle {
+    margin-right: 0.1rem;
+    width: 15px;
+    height: 15px;
+  }
+  .forum .tab-bar ul li div p {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .forum .tab-bar ul {
+    justify-content: space-between;
+  }
+  .forum .tab-bar ul li {
+    margin-right: 0.25rem;
   }
   .forum .tab-bar ul li div .circle {
     margin-right: 0.1rem;
@@ -796,7 +914,7 @@ nav ul .right li a p {
     height: 14px;
   }
   .forum .tab-bar ul li div p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 376px) {
@@ -819,8 +937,16 @@ nav ul .right li a p {
   }
 }
 @media screen and (max-width: 362px) {
+  .forum .tab-bar ul {
+    align-items: center;
+    flex-wrap: wrap;
+  }
   .forum .tab-bar ul li {
     margin-right: 0.4rem;
+  }
+  .forum .tab-bar ul li div {
+    display: flex;
+    flex-direction: column;
   }
   .forum .tab-bar ul li div .circle {
     margin-right: 0.25rem;
@@ -832,13 +958,14 @@ nav ul .right li a p {
   }
 }
 .posts {
-  margin-bottom: 1rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .posts .posts-box {
+  margin-bottom: 1rem;
   cursor: pointer;
   width: 80%;
   padding: 0.75rem 1rem;
@@ -1074,6 +1201,9 @@ nav ul .right li a p {
   border: 1px solid white;
   border-radius: 20px;
   color: white;
+}
+.profile .editPage .editPage-box .editPage-container .password input::-ms-reveal {
+  filter: invert(100%);
 }
 .profile .editPage .editPage-box .editPage-container .button {
   margin-top: 3rem;
@@ -1393,7 +1523,7 @@ nav ul .right li a p {
   align-items: center;
 }
 .postpage .comment .messages-wrapper .messages-box .messages-container .up .left .username {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   color: #ffe600;
   font-size: 0.9rem;
 }

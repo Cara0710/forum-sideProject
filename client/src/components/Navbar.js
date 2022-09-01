@@ -22,7 +22,7 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
       <ul>
         <div className="left">
           <li>
-            <NavLink to="/home">
+            <NavLink to="/">
               <img src="/icons/logo-icon.png" alt="logo-icon" />
             </NavLink>
           </li>

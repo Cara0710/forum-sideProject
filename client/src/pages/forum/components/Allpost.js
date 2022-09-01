@@ -32,7 +32,7 @@ const Allpost = ({ index, setIndex, allPostData }) => {
       )}
       {allPostData &&
         allPostData.map((data) => {
-          return <Posts allPostData={allPostData} data={data} key={data._id} />;
+          return <Posts index={index} data={data} key={data._id} />;
         })}
     </div>
   );

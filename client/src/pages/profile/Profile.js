@@ -8,10 +8,11 @@ import PostAuthService from "../../services/postAuth.service";
 import PostsService from "../../services/posts.service";
 
 const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState("mypost");
   const [editStatus, setEditStatus] = useState(false);
   const [userAllPost, setUserAllPost] = useState(null);
   const currentUserStatus = useRef(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   // set editpage visible
@@ -24,13 +25,16 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
       window.alert("請先登入");
       navigate("/login");
     } else {
+      setLoading(true);
       // if user than get initialize user all post
       PostAuthService.findUserPost(currentUser.user._id)
         .then((d) => {
+          setLoading(false);
           console.log(d.data);
           setUserAllPost(d.data);
         })
         .catch((e) => {
+          setLoading(false);
           console.log(e);
         });
     }
@@ -66,7 +70,7 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
   return (
     <div className="profile">
       {/* loading css animation */}
-      {!userAllPost && (
+      {loading && (
         <div className="loading-box">
           <div className="loading la-ball-8bits la-2x">
             <div></div>
@@ -89,10 +93,14 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
         </div>
       )}
       {currentUser && <TabBar index={index} setIndex={setIndex} />}
-      {index === 1 && userAllPost && currentUser && (
-        <Mypost userAllPost={userAllPost} currentUser={currentUser} />
+      {index === "mypost" && userAllPost && currentUser && (
+        <Mypost
+          index={index}
+          userAllPost={userAllPost}
+          currentUser={currentUser}
+        />
       )}
-      {index === 2 && currentUser && (
+      {index === "myprofile" && currentUser && (
         <Myprofile currentUser={currentUser} handleEditPage={handleEditPage} />
       )}
       {editStatus && currentUser && (
