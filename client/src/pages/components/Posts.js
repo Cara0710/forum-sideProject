@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Posts = ({ data }) => {
+const Posts = ({ data, allPostData }) => {
   const [average, setAverage] = useState(0);
   const navigate = useNavigate();
   const handlePost = () => {
@@ -10,6 +10,7 @@ const Posts = ({ data }) => {
 
   // caculate average
   useEffect(() => {
+    console.log("average");
     if (data) {
       const number = data.comments.map((d) => {
         return d.dangerous;

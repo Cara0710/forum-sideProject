@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Navbar";
 import Home from "../src/pages/home/Home";
@@ -15,7 +15,7 @@ import PostsService from "./services/posts.service";
 const App = () => {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   const [allPostData, setAllPostData] = useState(null);
-
+  const allPostDataStatus = useRef(false);
   // initialize get allPost data
   useEffect(() => {
     PostsService.getAllPost()
@@ -27,6 +27,24 @@ const App = () => {
         console.log(e);
       });
   }, []);
+
+  // if allpostdata change than restart get data
+  useEffect(() => {
+    if (!allPostDataStatus.current) {
+      return;
+    }
+    console.log("allpostData change");
+    PostsService.getAllPost()
+      .then((d) => {
+        console.log(d.data);
+        setAllPostData(d.data);
+        allPostDataStatus.current = false;
+      })
+      .catch((e) => {
+        console.log(e);
+        allPostDataStatus.current = false;
+      });
+  }, [allPostData]);
 
   return (
     <div>
@@ -50,13 +68,21 @@ const App = () => {
               <PostPage
                 setAllPostData={setAllPostData}
                 currentUser={currentUser}
+                allPostDataStatus={allPostDataStatus}
+                allPostData={allPostData}
               />
             }
           />
         </Route>
         <Route
           path="/profile"
-          element={<Profile currentUser={currentUser} />}
+          element={
+            <Profile
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setAllPostData={setAllPostData}
+            />
+          }
         />
         <Route path="/register" element={<Register />} />
         <Route

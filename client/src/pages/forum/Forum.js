@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TabBar from "./components/Tab-bar";
 import Allpost from "./components/Allpost";
 import Newpost from "./components/Newpost";
@@ -9,6 +9,7 @@ const Forum = ({ currentUser, allPostData, setAllPostData }) => {
   const handleNewpost = (status) => {
     setNewpostPage(status);
   };
+
   return (
     <div className="forum">
       <TabBar index={index} setIndex={setIndex} />

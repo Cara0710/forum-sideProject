@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DeleteMessage from "./DeleteMessage";
 import EditMessage from "./EditMessage";
 
-const Messages = ({ data, currentUser }) => {
+const Messages = ({ data, currentUser, postDataStatus, setPostData }) => {
   const [editButton, setEditButton] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [editPage, setEditPage] = useState(false);
@@ -59,10 +59,22 @@ const Messages = ({ data, currentUser }) => {
         </div>
       </div>
       {editPage && (
-        <EditMessage editPage={editPage} setEditPage={setEditPage} />
+        <EditMessage
+          data={data}
+          editPage={editPage}
+          setEditPage={setEditPage}
+          postDataStatus={postDataStatus}
+          setPostData={setPostData}
+        />
       )}
       {deletePage && (
-        <DeleteMessage deletePage={deletePage} setDeletePage={setDeletePage} />
+        <DeleteMessage
+          data={data}
+          deletePage={deletePage}
+          setDeletePage={setDeletePage}
+          postDataStatus={postDataStatus}
+          setPostData={setPostData}
+        />
       )}
     </div>
   );

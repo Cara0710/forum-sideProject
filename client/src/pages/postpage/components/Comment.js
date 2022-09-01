@@ -3,7 +3,7 @@ import Messages from "./Messages";
 import PostAuthService from "../../../services/postAuth.service";
 import { useNavigate } from "react-router-dom";
 
-const Comment = ({ currentUser, data, setPostData }) => {
+const Comment = ({ currentUser, data, setPostData, postDataStatus }) => {
   const [description, setDescription] = useState("");
   const [dangerous, setDangerous] = useState(0);
   const [dangerousColor, setDangerousColor] = useState("#1F1F1F");
@@ -65,6 +65,7 @@ const Comment = ({ currentUser, data, setPostData }) => {
 
   // add new comment
   const handleSend = (e) => {
+    postDataStatus.current = true;
     setLoading(true);
     PostAuthService.newComment(data._id, dangerous, description)
       .then((d) => {
@@ -78,6 +79,7 @@ const Comment = ({ currentUser, data, setPostData }) => {
         setDangerous(0);
         setBackgroundColor("white");
         setDangerousColor("#1F1F1F");
+        setMessage("");
       })
       .catch((e) => {
         setLoading(false);
@@ -161,7 +163,15 @@ const Comment = ({ currentUser, data, setPostData }) => {
         )}
         {data &&
           data.comments.map((d) => {
-            return <Messages data={d} key={d._id} currentUser={currentUser} />;
+            return (
+              <Messages
+                postDataStatus={postDataStatus}
+                data={d}
+                key={d._id}
+                currentUser={currentUser}
+                setPostData={setPostData}
+              />
+            );
           })}
       </div>
     </div>

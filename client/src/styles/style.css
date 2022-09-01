@@ -55,6 +55,19 @@ h6 {
   color: #24ff00;
 }
 
+.notfind-page {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notfind-page .notfind {
+  margin: 0rem 1rem;
+  text-align: left;
+  color: #24ff00;
+  font-size: 1.25rem;
+}
+
 /*!
  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
  * Copyright 2015 Daniel Cardoso <@DanielCardoso>

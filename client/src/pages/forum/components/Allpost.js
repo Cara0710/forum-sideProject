@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Posts from "../../components/Posts";
 
 const Allpost = ({ index, setIndex, allPostData }) => {
@@ -32,7 +32,7 @@ const Allpost = ({ index, setIndex, allPostData }) => {
       )}
       {allPostData &&
         allPostData.map((data) => {
-          return <Posts data={data} key={data._id} />;
+          return <Posts allPostData={allPostData} data={data} key={data._id} />;
         })}
     </div>
   );

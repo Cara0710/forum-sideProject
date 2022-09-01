@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TabBar from "./components/Tab-bar";
 import Mypost from "./components/Mypost";
 import Myprofile from "./components/Myprofile";
 import EditPage from "./components/EditPage";
 import { useNavigate } from "react-router-dom";
-import postAuthService from "../../services/postAuth.service";
+import PostAuthService from "../../services/postAuth.service";
+import PostsService from "../../services/posts.service";
 
-const Profile = ({ currentUser }) => {
+const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
   const [index, setIndex] = useState(1);
   const [editStatus, setEditStatus] = useState(false);
   const [userAllPost, setUserAllPost] = useState(null);
+  const currentUserStatus = useRef(false);
 
   const navigate = useNavigate();
   // set editpage visible
@@ -23,8 +25,7 @@ const Profile = ({ currentUser }) => {
       navigate("/login");
     } else {
       // if user than get initialize user all post
-      postAuthService
-        .findUserPost(currentUser.user._id)
+      PostAuthService.findUserPost(currentUser.user._id)
         .then((d) => {
           console.log(d.data);
           setUserAllPost(d.data);
@@ -34,6 +35,33 @@ const Profile = ({ currentUser }) => {
         });
     }
   }, []);
+
+  // if currentUser chang than restart get userpost data and allpost data
+  useEffect(() => {
+    if (!currentUserStatus.current) {
+      return;
+    }
+    console.log("currentuser change!");
+    PostAuthService.findUserPost(currentUser.user._id)
+      .then((d) => {
+        console.log(d.data);
+        setUserAllPost(d.data);
+        currentUserStatus.current = false;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+    PostsService.getAllPost()
+      .then((d) => {
+        console.log(d.data);
+        setAllPostData(d.data);
+        currentUserStatus.current = false;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [currentUser]);
 
   return (
     <div className="profile">
@@ -68,7 +96,13 @@ const Profile = ({ currentUser }) => {
         <Myprofile currentUser={currentUser} handleEditPage={handleEditPage} />
       )}
       {editStatus && currentUser && (
-        <EditPage editStatus={editStatus} handleEditPage={handleEditPage} />
+        <EditPage
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          editStatus={editStatus}
+          handleEditPage={handleEditPage}
+          currentUserStatus={currentUserStatus}
+        />
       )}
     </div>
   );

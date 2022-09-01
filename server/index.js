@@ -25,14 +25,21 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+// post router
 app.use("/api/posts", postRoute);
+
+// user register login router
 app.use("/api/user", authRoute);
+
+// post need have auth router
 app.use(
   "/api/auth/posts",
   passport.authenticate("jwt", { session: false }),
   postAuthRoute
 );
 
+// user need have auth router
 app.use(
   "/api/auth/user",
   passport.authenticate("jwt", { session: false }),

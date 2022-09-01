@@ -1,10 +1,41 @@
 import React, { useState } from "react";
+import PostAuthService from "../../../services/postAuth.service";
 
-const EditMessage = ({ setEditPage, editPage }) => {
-  const [description, setDescription] = useState("");
-  const [dangerous, setDangerous] = useState(0);
-  const [dangerousColor, setDangerousColor] = useState("#1F1F1F");
-  const [backgroundColor, setBackgroundColor] = useState("white");
+const EditMessage = ({
+  setEditPage,
+  editPage,
+  data,
+  postDataStatus,
+  setPostData,
+}) => {
+  const [description, setDescription] = useState(data.content);
+  const [dangerous, setDangerous] = useState(data.dangerous);
+  const [dangerousColor, setDangerousColor] = useState(initializeColor());
+  const [backgroundColor, setBackgroundColor] = useState(
+    initializeBackgroundColor()
+  );
+
+  // error message
+  const [message, setMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // set initialize color
+  function initializeBackgroundColor() {
+    if (data.dangerous >= 1 && data.dangerous < 5) {
+      return "#24FF00";
+    } else if (data.dangerous >= 5 && data.dangerous < 7.5) {
+      return "#F68500";
+    } else {
+      return "#EF3737";
+    }
+  }
+  function initializeColor() {
+    if (data.dangerous >= 1 && data.dangerous < 5) {
+      return "black";
+    } else {
+      return "white";
+    }
+  }
 
   // set input color and value
   const handleDangerous = (e) => {
@@ -29,12 +60,60 @@ const EditMessage = ({ setEditPage, editPage }) => {
   const handleCancle = (e) => {
     setEditPage(false);
   };
-  // button send
+
+  // send updated message
   const handleSend = (e) => {
-    setEditPage(false);
+    postDataStatus.current = true;
+    setLoading(true);
+    PostAuthService.updateComment(data._id, dangerous, description)
+      .then((d) => {
+        const newData = d.data;
+        setPostData((pre) => {
+          const updataComments = pre.comments.map((d) => {
+            if (d._id === data._id) {
+              return newData;
+            } else {
+              return d;
+            }
+          });
+          console.log(updataComments);
+          return { ...pre, comments: updataComments };
+        });
+        setLoading(false);
+        setEditPage(false);
+      })
+      .catch((e) => {
+        setLoading(false);
+        console.log(e);
+        setMessage(e.response.data);
+      });
   };
+
   return (
     <div className="editPage">
+      {/* loading css animation */}
+      {loading && (
+        <div className="loading-box">
+          <div className="loading la-ball-8bits la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      )}
       <div className={editPage ? "editPage-box moveBox" : "editPage-box"}>
         <div className="editPage-container">
           <div className="new">
@@ -71,6 +150,7 @@ const EditMessage = ({ setEditPage, editPage }) => {
               rows="10"
             ></textarea>
           </div>
+          {message && <div className="error">{message}</div>}
           <div className="button">
             <button onClick={handleCancle}>取消</button>
             <button onClick={handleSend}>儲存</button>

@@ -1,31 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Article from "./components/Article";
 import Comment from "./components/Comment";
 import EditPage from "./components/EditPage";
 import DeletePage from "./components/DeletePage";
 import PostsService from "../../services/posts.service";
+import NotFound from "../../components/NotFound";
 
-const Postpage = ({ currentUser, setAllPostData }) => {
+const Postpage = ({
+  currentUser,
+  setAllPostData,
+  allPostDataStatus,
+  allPostData,
+}) => {
   const [editbutton, setEditButton] = useState(false);
   const [editPage, setEditPage] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [postData, setPostData] = useState(null);
   const [average, setAverage] = useState(0);
+  const postDataStatus = useRef(false);
   let { _id } = useParams();
+  const [loading, setLoading] = useState(false);
+  const [notFindPage, setNotFindPage] = useState(false);
 
   // initialize get onepost data
   useEffect(() => {
+    setLoading(true);
     PostsService.getOnePost(_id)
       .then((d) => {
+        setLoading(false);
         setPostData(d.data);
+        if (d.data === "") {
+          setNotFindPage(true);
+        }
       })
       .catch((e) => {
-        console.log(e);
+        setLoading(false);
+        setNotFindPage(true);
       });
   }, []);
 
-  //if post data change then restart get all post an averaged
+  //if post data change then restart get all post
   useEffect(() => {
     // caculate average
     if (postData) {
@@ -37,18 +52,23 @@ const Postpage = ({ currentUser, setAllPostData }) => {
         return pre + cur;
       });
       setAverage(result / number.length);
-
-      // restart get all post
-      PostsService.getAllPost()
-        .then((d) => {
-          console.log(d.data);
-          setAllPostData(d.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
     }
+    if (!postDataStatus.current) {
+      return;
+    }
+    console.log("postData change");
+
+    PostsService.getAllPost()
+      .then((d) => {
+        console.log(d.data);
+        setAllPostData(d.data);
+        postDataStatus.current = false;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, [postData]);
+
   // make edit article button visible
   const handleEditButton = (e) => {
     if (e.target.className !== "edit-button") return setEditButton(false);
@@ -61,7 +81,7 @@ const Postpage = ({ currentUser, setAllPostData }) => {
   return (
     <div className="postpage" onClick={handleEditButton}>
       {/* loading css animation */}
-      {!postData && (
+      {loading && (
         <div className="loading-box">
           <div className="loading la-ball-8bits la-2x">
             <div></div>
@@ -83,6 +103,9 @@ const Postpage = ({ currentUser, setAllPostData }) => {
           </div>
         </div>
       )}
+
+      {/* not find page */}
+      {notFindPage && <NotFound />}
       {postData && (
         <Article
           editbutton={editbutton}
@@ -98,14 +121,29 @@ const Postpage = ({ currentUser, setAllPostData }) => {
           currentUser={currentUser}
           data={postData}
           setPostData={setPostData}
+          postDataStatus={postDataStatus}
+        />
+      )}
+      {/* article edit page */}
+      {editPage && (
+        <EditPage
+          data={postData}
+          editPage={editPage}
+          handleEditPage={handleEditPage}
+          postDataStatus={postDataStatus}
+          setPostData={setPostData}
         />
       )}
 
-      {editPage && (
-        <EditPage editPage={editPage} handleEditPage={handleEditPage} />
-      )}
+      {/* article delete page */}
       {deletePage && (
-        <DeletePage deletePage={deletePage} setDeletePage={setDeletePage} />
+        <DeletePage
+          data={postData}
+          deletePage={deletePage}
+          setDeletePage={setDeletePage}
+          allPostDataStatus={allPostDataStatus}
+          setAllPostData={setAllPostData}
+        />
       )}
     </div>
   );
