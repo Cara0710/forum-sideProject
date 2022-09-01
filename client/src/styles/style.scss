@@ -51,16 +51,44 @@ h6 {
 .notfind-page {
   height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0rem 1rem;
   .notfind {
-    margin: 0rem 1rem;
-    text-align: left;
-    color: #24ff00;
-    font-size: 1.25rem;
+    color: white;
+    text-align: center;
+    font-size: 5rem;
+  }
+  .small {
+    padding-top: 1.5rem;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
   }
 }
 
+@media screen and(max-width: 821px) {
+  .notfind-page {
+    .notfind {
+      font-size: 3rem;
+    }
+    .small {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media screen and(max-width: 392px) {
+  .notfind-page {
+    .notfind {
+      font-size: 2.5rem;
+    }
+    .small {
+      font-size: 1.1rem;
+    }
+  }
+}
 // loading css animation
 /*!
  * Load Awesome v1.1.0 (http://github.danielcardoso.net/load-awesome/)
