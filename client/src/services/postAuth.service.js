@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080/api/auth/posts";
+const API_URL = "https://forum-side-project.herokuapp.com/api/auth/posts";
 
 class PostAuthService {
   // add newPost

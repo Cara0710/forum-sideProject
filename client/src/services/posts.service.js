@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:8080/api/posts";
+const API_URL = "https://forum-side-project.herokuapp.com/api/posts";
 
 class postService {
   // get all post data include message
