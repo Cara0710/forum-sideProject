@@ -16,13 +16,17 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   const [allPostData, setAllPostData] = useState(null);
   const allPostDataStatus = useRef(false);
+  const [loading, setLoading] = useState(false);
   // initialize get allPost data
   useEffect(() => {
+    setLoading(true);
     PostsService.getAllPost()
       .then((d) => {
+        setLoading(false);
         setAllPostData(d.data);
       })
       .catch((e) => {
+        setLoading(false);
         console.log(e);
       });
   }, []);
@@ -53,6 +57,7 @@ const App = () => {
             path="forum"
             element={
               <Forum
+                loading={loading}
                 setAllPostData={setAllPostData}
                 currentUser={currentUser}
                 allPostData={allPostData}

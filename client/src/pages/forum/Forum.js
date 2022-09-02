@@ -3,7 +3,7 @@ import TabBar from "./components/Tab-bar";
 import Allpost from "./components/Allpost";
 import Newpost from "./components/Newpost";
 
-const Forum = ({ currentUser, allPostData, setAllPostData }) => {
+const Forum = ({ currentUser, allPostData, setAllPostData, loading }) => {
   const [index, setIndex] = useState(1);
   const [newpostPage, setNewpostPage] = useState(false);
   const handleNewpost = (status) => {
@@ -13,7 +13,12 @@ const Forum = ({ currentUser, allPostData, setAllPostData }) => {
   return (
     <div className="forum">
       <TabBar index={index} setIndex={setIndex} />
-      <Allpost index={index} allPostData={allPostData} setIndex={setIndex} />
+      <Allpost
+        loading={loading}
+        index={index}
+        allPostData={allPostData}
+        setIndex={setIndex}
+      />
       {newpostPage && (
         <Newpost
           currentUser={currentUser}

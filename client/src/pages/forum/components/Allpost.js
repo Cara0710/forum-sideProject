@@ -1,11 +1,11 @@
 import React from "react";
 import Posts from "../../components/Posts";
 
-const Allpost = ({ index, setIndex, allPostData }) => {
+const Allpost = ({ index, setIndex, allPostData, loading }) => {
   return (
     <div className="allpost">
       {/* loading css animation */}
-      {!allPostData && (
+      {loading && (
         <div className="loading-box">
           <div className="loading la-ball-8bits la-2x">
             <div></div>
