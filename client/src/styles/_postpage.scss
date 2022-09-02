@@ -106,6 +106,7 @@
     padding-bottom: 2rem;
     .comment-box {
       width: 80%;
+      padding: 0rem 1rem;
       margin-top: 2rem;
       margin-bottom: 1rem;
       .comment-container {
@@ -240,6 +241,7 @@
       }
       .messages-box {
         width: 80%;
+        padding: 0rem 1rem;
         margin: 1rem 0rem;
         .messages-container {
           position: relative;
@@ -526,7 +528,7 @@
   }
 }
 
-@media screen and (max-width: 440px) {
+@media screen and (max-width: 470px) {
   .postpage {
     .article {
       .article-box {
@@ -680,6 +682,79 @@
               text-align: center;
               font-size: 1rem;
               color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 307px) {
+  .postpage {
+    .article {
+      .article-box {
+        .article-container {
+          .title {
+            h1 {
+              font-size: 1.35rem;
+            }
+          }
+          .content {
+            P {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+    .comment {
+      .comment-box {
+        .comment-container {
+          .up {
+            justify-content: space-between;
+            padding: 0rem;
+            padding-bottom: 1rem;
+            .title {
+              font-size: 1.1rem;
+            }
+            .number {
+              font-size: 1.1rem;
+              padding: 0rem 1rem;
+            }
+          }
+          .input {
+            div {
+              display: flex;
+              justify-content: space-between;
+              label {
+                font-size: 1rem;
+              }
+              input[type="range"] {
+                width: 45%;
+                margin-left: 0.15rem;
+              }
+              p {
+                margin-left: 0.25rem;
+                height: 30px;
+                width: 30px;
+                font-size: 1rem;
+              }
+            }
+            .text {
+              input[type="text"] {
+                font-size: 1rem;
+                padding: 0.5rem 0rem;
+                width: 100%;
+              }
+              .button {
+                margin: 0.5rem 0rem;
+                button {
+                  font-size: 1rem;
+                  padding: 0.25rem 0.5rem;
+                  margin: 0rem 0.25rem;
+                }
+              }
             }
           }
         }
