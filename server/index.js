@@ -52,11 +52,15 @@ app.get("/*", (req, res) => {
   res.send("Not allow");
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).send("Something is broken.we will fix it soon.");
 });
 // 連接伺服器
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
