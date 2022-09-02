@@ -1420,7 +1420,6 @@ nav ul .right li a p {
 }
 .postpage .comment .comment-box {
   width: 80%;
-  padding: 0rem 1rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -1563,7 +1562,6 @@ nav ul .right li a p {
 }
 .postpage .comment .messages-wrapper .messages-box {
   width: 80%;
-  padding: 0rem 1rem;
   margin: 1rem 0rem;
 }
 .postpage .comment .messages-wrapper .messages-box .messages-container {
@@ -1817,7 +1815,7 @@ nav ul .right li a p {
     margin-left: 0.25rem;
   }
 }
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 440px) {
   .postpage .article .article-box .article-container .title h1 {
     font-size: 1.5rem;
   }
@@ -1918,55 +1916,5 @@ nav ul .right li a p {
     text-align: center;
     font-size: 1rem;
     color: white;
-  }
-}
-@media screen and (max-width: 307px) {
-  .postpage .article .article-box .article-container .title h1 {
-    font-size: 1.35rem;
-  }
-  .postpage .article .article-box .article-container .content P {
-    font-size: 1rem;
-  }
-  .postpage .comment .comment-box .comment-container .up {
-    justify-content: space-between;
-    padding: 0rem;
-    padding-bottom: 1rem;
-  }
-  .postpage .comment .comment-box .comment-container .up .title {
-    font-size: 1.1rem;
-  }
-  .postpage .comment .comment-box .comment-container .up .number {
-    font-size: 1.1rem;
-    padding: 0rem 1rem;
-  }
-  .postpage .comment .comment-box .comment-container .input div {
-    display: flex;
-    justify-content: space-between;
-  }
-  .postpage .comment .comment-box .comment-container .input div label {
-    font-size: 1rem;
-  }
-  .postpage .comment .comment-box .comment-container .input div input[type=range] {
-    width: 45%;
-    margin-left: 0.15rem;
-  }
-  .postpage .comment .comment-box .comment-container .input div p {
-    margin-left: 0.25rem;
-    height: 30px;
-    width: 30px;
-    font-size: 1rem;
-  }
-  .postpage .comment .comment-box .comment-container .input .text input[type=text] {
-    font-size: 1rem;
-    padding: 0.5rem 0rem;
-    width: 100%;
-  }
-  .postpage .comment .comment-box .comment-container .input .text .button {
-    margin: 0.5rem 0rem;
-  }
-  .postpage .comment .comment-box .comment-container .input .text .button button {
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    margin: 0rem 0.25rem;
   }
 }/*# sourceMappingURL=style.css.map */
