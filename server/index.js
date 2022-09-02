@@ -10,6 +10,7 @@ const userAuthRoute = require("./routes").userAuth;
 const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
+const port = process.env.PORT || 8080;
 
 // 連接到mongodb altas
 mongoose
@@ -56,6 +57,6 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something is broken.we will fix it soon.");
 });
 // 連接伺服器
-app.listen(8080, () => {
-  console.log("Server is running on port 8080.");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
