@@ -30,7 +30,6 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
       PostAuthService.findUserPost(currentUser.user._id)
         .then((d) => {
           setLoading(false);
-          console.log(d.data);
           setUserAllPost(d.data);
         })
         .catch((e) => {
@@ -45,10 +44,8 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
     if (!currentUserStatus.current) {
       return;
     }
-    console.log("currentuser change!");
     PostAuthService.findUserPost(currentUser.user._id)
       .then((d) => {
-        console.log(d.data);
         setUserAllPost(d.data);
         currentUserStatus.current = false;
       })
@@ -58,7 +55,6 @@ const Profile = ({ currentUser, setCurrentUser, setAllPostData }) => {
 
     PostsService.getAllPost()
       .then((d) => {
-        console.log(d.data);
         setAllPostData(d.data);
         currentUserStatus.current = false;
       })

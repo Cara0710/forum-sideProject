@@ -444,12 +444,68 @@ h6 {
     font-size: 0.9rem;
   }
 }
+.help {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+.help .help-box {
+  margin-top: 1.5rem;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: #1f1f1f;
+}
+.help .help-box h1 {
+  padding-bottom: 0.5rem;
+  color: #24ff00;
+  font-size: 1.75rem;
+  border-bottom: 1px solid white;
+}
+.help .help-box div {
+  padding-top: 0.5rem;
+}
+.help .help-box div p {
+  font-size: 1rem;
+  padding: 0.5rem 0rem;
+}
+.help .help-box div .infor-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.help .help-box div .infor-box div {
+  margin-right: 1rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.help .help-box div .infor-box .white {
+  background-color: white;
+}
+.help .help-box div .infor-box .safe {
+  background-color: #24ff00;
+}
+.help .help-box div .infor-box .warn {
+  background-color: #f68500;
+}
+.help .help-box div .infor-box .dangerous {
+  background-color: #ef3737;
+}
+
 nav {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #202020;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 nav ul {
   width: 100%;
@@ -772,8 +828,8 @@ nav ul .right li a p {
   z-index: 10;
   cursor: pointer;
   position: relative;
-  height: 75px;
-  width: 75px;
+  height: 4.5rem;
+  width: 4.5rem;
   border-radius: 100%;
   background-color: #f68500;
 }
@@ -786,7 +842,7 @@ nav ul .right li a p {
   left: 31%;
   color: white;
   transform: rotate(90deg);
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 .forum .newpost {
   position: fixed;
@@ -1062,9 +1118,6 @@ nav ul .right li a p {
   font-size: 1.35rem;
   color: #ffe600;
 }
-.profile .myprofile {
-  min-height: 90vh;
-}
 .profile .myprofile .myprofile-box {
   display: flex;
   align-items: center;
@@ -1097,7 +1150,8 @@ nav ul .right li a p {
   word-break: break-all;
 }
 .profile .myprofile .myprofile-box .myprofile-container table tbody th {
-  padding-right: 2rem;
+  width: 115px;
+  padding-right: 1rem;
   text-align: left;
   font-weight: normal;
   font-size: 1.1rem;

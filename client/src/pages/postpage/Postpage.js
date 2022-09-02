@@ -56,11 +56,9 @@ const Postpage = ({
     if (!postDataStatus.current) {
       return;
     }
-    console.log("postData change");
 
     PostsService.getAllPost()
       .then((d) => {
-        console.log(d.data);
         setAllPostData(d.data);
         postDataStatus.current = false;
       })

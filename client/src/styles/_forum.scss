@@ -59,8 +59,8 @@
       z-index: 10;
       cursor: pointer;
       position: relative;
-      height: 75px;
-      width: 75px;
+      height: 4.5rem;
+      width: 4.5rem;
       border-radius: 100%;
       background-color: #f68500;
       &:hover {
@@ -72,7 +72,7 @@
         left: 31%;
         color: white;
         transform: rotate(90deg);
-        font-size: 2rem;
+        font-size: 1.9rem;
       }
     }
   }

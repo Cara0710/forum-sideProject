@@ -31,7 +31,6 @@ const EditPage = ({
       .then((d) => {
         let data = JSON.parse(localStorage.getItem("user"));
         data.user = d.data;
-        console.log(data);
         localStorage.setItem("user", JSON.stringify(data));
         setCurrentUser(AuthService.getCurrentUser());
         handleEditPage(false);

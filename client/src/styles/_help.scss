@@ -1,0 +1,52 @@
+.help {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  .help-box {
+    margin-top: 1.5rem;
+
+    width: 80%;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: #1f1f1f;
+    h1 {
+      padding-bottom: 0.5rem;
+      color: #24ff00;
+      font-size: 1.75rem;
+      border-bottom: 1px solid white;
+    }
+    div {
+      padding-top: 0.5rem;
+      p {
+        font-size: 1rem;
+        padding: 0.5rem 0rem;
+      }
+      .infor-box {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        div {
+          margin-right: 1rem;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+        }
+        .white {
+          background-color: white;
+        }
+        .safe {
+          background-color: #24ff00;
+        }
+        .warn {
+          background-color: #f68500;
+        }
+        .dangerous {
+          background-color: #ef3737;
+        }
+      }
+    }
+  }
+}

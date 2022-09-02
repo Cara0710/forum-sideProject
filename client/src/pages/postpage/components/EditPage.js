@@ -27,7 +27,6 @@ const EditPage = ({
     PostAuthService.updatePost(data._id, title, description)
       .then((d) => {
         setLoading(false);
-        console.log(d.data);
         setPostData(d.data);
         handleEditPage(false);
       })

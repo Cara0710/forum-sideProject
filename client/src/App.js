@@ -20,7 +20,6 @@ const App = () => {
   useEffect(() => {
     PostsService.getAllPost()
       .then((d) => {
-        console.log(d.data);
         setAllPostData(d.data);
       })
       .catch((e) => {
@@ -33,10 +32,8 @@ const App = () => {
     if (!allPostDataStatus.current) {
       return;
     }
-    console.log("allpostData change");
     PostsService.getAllPost()
       .then((d) => {
-        console.log(d.data);
         setAllPostData(d.data);
         allPostDataStatus.current = false;
       })

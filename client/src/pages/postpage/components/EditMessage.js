@@ -76,7 +76,6 @@ const EditMessage = ({
               return d;
             }
           });
-          console.log(updataComments);
           return { ...pre, comments: updataComments };
         });
         setLoading(false);
