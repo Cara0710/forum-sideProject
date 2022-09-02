@@ -417,7 +417,7 @@ h6 {
 }
 @media screen and (max-width: 612px) {
   .home .title {
-    width: 80%;
+    width: 90%;
     margin: 0rem;
     padding: 3rem 0.75rem;
   }
@@ -496,6 +496,11 @@ h6 {
   background-color: #ef3737;
 }
 
+@media screen and (max-width: 545px) {
+  .help .help-box {
+    width: 90%;
+  }
+}
 nav {
   width: 100%;
   display: flex;
@@ -664,7 +669,7 @@ nav ul .right li a p {
 
 @media screen and (max-width: 550px) {
   .register .register-box {
-    width: 80%;
+    width: 90%;
   }
   .register .register-box .register-container {
     padding: 3rem 1rem;
@@ -756,7 +761,7 @@ nav ul .right li a p {
 
 @media screen and (max-width: 550px) {
   .login .login-box {
-    width: 80%;
+    width: 90%;
   }
   .login .login-box .login-container {
     padding: 3rem 1rem;
@@ -957,6 +962,14 @@ nav ul .right li a p {
     font-size: 1.1rem;
   }
 }
+@media screen and (max-width: 545px) {
+  .forum .tab-bar ul {
+    width: 90%;
+  }
+  .forum .newpost .newpost-box .newpost-container {
+    width: 90%;
+  }
+}
 @media screen and (max-width: 450px) {
   .forum .tab-bar ul {
     justify-content: space-between;
@@ -1091,6 +1104,11 @@ nav ul .right li a p {
   .posts .posts-box .posts-container .right .circle {
     width: 15px;
     height: 15px;
+  }
+}
+@media screen and (max-width: 545px) {
+  .posts .posts-box {
+    width: 90%;
   }
 }
 .profile .tab-bar {
@@ -1314,6 +1332,9 @@ nav ul .right li a p {
   .profile .editPage .editPage-box .editPage-container .button button {
     font-size: 1.1rem;
     padding: 0.5rem 1.5rem;
+  }
+  .profile .myprofile .myprofile-box .myprofile-container {
+    width: 90%;
   }
 }
 .postpage {
@@ -1805,6 +1826,9 @@ nav ul .right li a p {
 }
 
 @media screen and (max-width: 545px) {
+  .postpage .editPage .editPage-box .editPage-container {
+    width: 90%;
+  }
   .postpage .editPage .editPage-box .editPage-container .input div input[type=range] {
     width: 45%;
     margin-left: 0.25rem;
@@ -1816,11 +1840,17 @@ nav ul .right li a p {
   }
 }
 @media screen and (max-width: 440px) {
+  .postpage .article .article-box {
+    width: 90%;
+  }
   .postpage .article .article-box .article-container .title h1 {
     font-size: 1.5rem;
   }
   .postpage .article .article-box .article-container .content P {
     font-size: 1rem;
+  }
+  .postpage .comment .comment-box {
+    width: 90%;
   }
   .postpage .comment .comment-box .comment-container .up {
     justify-content: space-between;
