@@ -524,6 +524,21 @@
         }
       }
     }
+    .article {
+      .article-box {
+        width: 90%;
+      }
+    }
+    .comment {
+      .comment-box {
+        width: 90%;
+      }
+      .messages-wrapper {
+        .messages-box {
+          width: 90%;
+        }
+      }
+    }
   }
 }
 
@@ -531,7 +546,6 @@
   .postpage {
     .article {
       .article-box {
-        width: 90%;
         .article-container {
           .title {
             h1 {
@@ -548,7 +562,6 @@
     }
     .comment {
       .comment-box {
-        width: 90%;
         .comment-container {
           .up {
             justify-content: space-between;

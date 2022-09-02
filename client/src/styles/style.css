@@ -1323,7 +1323,7 @@ nav ul .right li a p {
     justify-content: center;
   }
   .profile .editPage .editPage-box .editPage-container {
-    width: 80vw;
+    width: 90vw;
     padding: 3rem 1rem;
   }
   .profile .editPage .editPage-box .editPage-container .title h1 {
@@ -1838,19 +1838,22 @@ nav ul .right li a p {
     width: 28px;
     margin-left: 0.25rem;
   }
-}
-@media screen and (max-width: 440px) {
   .postpage .article .article-box {
     width: 90%;
   }
+  .postpage .comment .comment-box {
+    width: 90%;
+  }
+  .postpage .comment .messages-wrapper .messages-box {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 440px) {
   .postpage .article .article-box .article-container .title h1 {
     font-size: 1.5rem;
   }
   .postpage .article .article-box .article-container .content P {
     font-size: 1rem;
-  }
-  .postpage .comment .comment-box {
-    width: 90%;
   }
   .postpage .comment .comment-box .comment-container .up {
     justify-content: space-between;
