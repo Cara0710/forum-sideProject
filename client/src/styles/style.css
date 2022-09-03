@@ -1566,7 +1566,7 @@ nav ul .right li a p {
 }
 .postpage .comment .messages-wrapper {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -1599,8 +1599,13 @@ nav ul .right li a p {
   font-size: 0.9rem;
 }
 .postpage .comment .messages-wrapper .messages-box .messages-container .up .left .date {
+  margin-right: 0.5rem;
   color: rgb(206, 206, 206);
   font-size: 0.8rem;
+}
+.postpage .comment .messages-wrapper .messages-box .messages-container .up .left .index {
+  color: rgb(206, 206, 206);
+  font-size: 0.75rem;
 }
 .postpage .comment .messages-wrapper .messages-box .messages-container .up .right .editButton {
   -moz-user-select: none;

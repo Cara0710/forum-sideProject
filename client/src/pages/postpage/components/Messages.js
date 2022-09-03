@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import DeleteMessage from "./DeleteMessage";
 import EditMessage from "./EditMessage";
 
-const Messages = ({ data, currentUser, postDataStatus, setPostData }) => {
+const Messages = ({
+  data,
+  currentUser,
+  postDataStatus,
+  setPostData,
+  index,
+}) => {
   const [editButton, setEditButton] = useState(false);
   const [deletePage, setDeletePage] = useState(false);
   const [editPage, setEditPage] = useState(false);
@@ -30,6 +36,7 @@ const Messages = ({ data, currentUser, postDataStatus, setPostData }) => {
               5,
               7
             )}/${data.date.slice(8, 10)} ${data.date.slice(11, 19)}`}</p>
+            <p className="index">{`B${index + 1}`}</p>
           </div>
           <div className="right">
             {currentUser && currentUser.user._id === data.author._id && (

@@ -87,7 +87,6 @@ const Comment = ({ currentUser, data, setPostData, postDataStatus }) => {
         setMessage(e.response.data);
       });
   };
-
   return (
     <div className="comment">
       <div className="comment-box">
@@ -156,18 +155,18 @@ const Comment = ({ currentUser, data, setPostData, postDataStatus }) => {
           </div>
         </div>
       )}
-
       <div className="messages-wrapper">
         {data && data.comments.length === 0 && (
           <div className="noComment">尚未有任何留言</div>
         )}
         {data &&
-          data.comments.map((d) => {
+          data.comments.map((d, index) => {
             return (
               <Messages
                 postDataStatus={postDataStatus}
                 data={d}
                 key={d._id}
+                index={index}
                 currentUser={currentUser}
                 setPostData={setPostData}
               />
