@@ -833,12 +833,13 @@ nav ul .right li a p {
   z-index: 10;
 }
 .forum .newpost-button .button p {
+  text-align: center;
   cursor: pointer;
   background-color: #f68500;
   color: white;
   transform: rotate(90deg);
   font-size: 2rem;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 100%;
 }
 .forum .newpost-button .button p:hover {
