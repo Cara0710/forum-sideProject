@@ -8,7 +8,7 @@
 
 <h3 align="left">部屬方式:</h3>
 <p align="left">server端:Heroku</p>
-<p align="left">client端:netlify</p>
+<p align="left">client端:Netlify</p>
 
 <h3 align="left">專案介紹:</h3>
 <p align="left">透過評分危險指數的留言機制，系統會自動幫你算出您貼文下所有留言的危險程度平均值，並用顏色即時呈顯出來，讓你的疑問有效率的獲得解答， 改善以往其他平台無法快速總結留言的缺點，希望能藉此，減少台灣人被詐騙的機率。</p>
