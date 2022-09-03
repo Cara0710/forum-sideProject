@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, make a forum!</h1>
 
-<h3 align="left" >作品連結:</h3>
+<h3 align="left" >Demo:</h3>
 [https://afd-fourm.netlify.app/]
 
 <h3 align="left">side project要旨:</h3>
