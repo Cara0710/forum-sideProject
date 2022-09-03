@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, make a forum!</h1>
-<h3 align="left">此side-project是使用Mern架構，前後端分離所寫成的論壇，後端部屬在Heroky上，前端則是部屬在netlify上。</h3>
+<h3 align="left">此side-project是使用Mern架構，前後端分離所寫成的論壇，後端部屬在Heroku上，前端則是部屬在netlify上。</h3>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
