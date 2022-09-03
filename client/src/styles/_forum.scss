@@ -51,28 +51,48 @@
       color: #24ff00;
     }
   }
+  // .newpost-button {
+  //   position: fixed;
+  //   right: 5%;
+  //   bottom: 5%;
+  //   .button {
+  //     z-index: 10;
+  //     cursor: pointer;
+  //     position: relative;
+  //     height: 4.5rem;
+  //     width: 4.5rem;
+  //     border-radius: 100%;
+  //     background-color: #f68500;
+  //     &:hover {
+  //       background-color: #ef3737;
+  //     }
+  //     p {
+  //       position: absolute;
+  //       top: 21.5%;
+  //       left: 31%;
+  //       color: white;
+  //       transform: rotate(90deg);
+  //       font-size: 1.9rem;
+  //     }
+  //   }
+  // }
   .newpost-button {
     position: fixed;
     right: 5%;
     bottom: 5%;
     .button {
       z-index: 10;
-      cursor: pointer;
-      position: relative;
-      height: 4.5rem;
-      width: 4.5rem;
-      border-radius: 100%;
-      background-color: #f68500;
-      &:hover {
-        background-color: #ef3737;
-      }
       p {
-        position: absolute;
-        top: 21.5%;
-        left: 31%;
+        cursor: pointer;
+        background-color: #f68500;
         color: white;
         transform: rotate(90deg);
-        font-size: 1.9rem;
+        font-size: 2rem;
+        padding: 1rem 1.5rem;
+        border-radius: 100%;
+        &:hover {
+          background-color: #ef3737;
+        }
       }
     }
   }

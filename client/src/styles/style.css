@@ -831,23 +831,18 @@ nav ul .right li a p {
 }
 .forum .newpost-button .button {
   z-index: 10;
-  cursor: pointer;
-  position: relative;
-  height: 4.5rem;
-  width: 4.5rem;
-  border-radius: 100%;
-  background-color: #f68500;
-}
-.forum .newpost-button .button:hover {
-  background-color: #ef3737;
 }
 .forum .newpost-button .button p {
-  position: absolute;
-  top: 21.5%;
-  left: 31%;
+  cursor: pointer;
+  background-color: #f68500;
   color: white;
   transform: rotate(90deg);
-  font-size: 1.9rem;
+  font-size: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 100%;
+}
+.forum .newpost-button .button p:hover {
+  background-color: #ef3737;
 }
 .forum .newpost {
   position: fixed;
