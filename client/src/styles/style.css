@@ -1876,7 +1876,7 @@ nav ul .right li a p {
     font-size: 1rem;
   }
   .postpage .comment .comment-box .comment-container .input div input[type=range] {
-    width: 50%;
+    width: 55%;
     margin-left: 0.25rem;
   }
   .postpage .comment .comment-box .comment-container .input div p {
@@ -1907,7 +1907,7 @@ nav ul .right li a p {
 }
 @media screen and (max-width: 376px) {
   .postpage .editPage .editPage-box .editPage-container {
-    width: 80%;
+    width: 90%;
     padding: 2rem 0.5rem;
   }
   .postpage .editPage .editPage-box .editPage-container .new h1 {
@@ -1925,7 +1925,7 @@ nav ul .right li a p {
     font-size: 1rem;
   }
   .postpage .editPage .editPage-box .editPage-container .input div input[type=range] {
-    width: 40%;
+    width: 45%;
     margin-left: 0rem;
   }
   .postpage .editPage .editPage-box .editPage-container .input div p {
