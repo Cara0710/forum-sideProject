@@ -26,6 +26,10 @@
 <p align="left">所有人:可以看到首頁、論壇文章、留言、使用須知介面</p>
 <p align="left">會員:可以增刪改寫自己所發布的貼文及留言，並擁有自己個人檔案介面，可以看到自己的會員資料，及過去所發過的貼文。</p>
 
+<h3 align="left">使用技術:</h3>
+<p align="left">後端:MongoDB Altas資料庫設計、Jwt跨域會員驗證、Restful API製作、Postman測試API、cors跨來源設定</p>
+<p align="left">前端:React Hooks運用、React Router路徑設置、Scss切版、axios串接後端API、手刻RWD響應式網站</p>
+
 <h3 align="left">後端使用工具:</h3>
 <p align="left"> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> </p>
 
